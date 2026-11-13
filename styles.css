@@ -265,7 +265,8 @@ header[id] {
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 1.35rem;
+  gap: clamp(0.55rem, 1.05vw, 1.15rem);
+  flex-shrink: 1;
 }
 
 .main-nav a {
@@ -2082,6 +2083,18 @@ header[id] {
   color: var(--ink-700);
 }
 
+.venue-poc-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.venue-poc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.15rem;
+  margin-top: 0.35rem;
+}
+
 .venue-poc-details {
   display: flex;
   flex-direction: column;
@@ -2649,6 +2662,13 @@ header[id] {
   }
 }
 
+@media (max-width: 520px) {
+  .venue-poc-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+}
+
 /* =========================================================
    PRINT / BROCHURE PDF EXPORT STYLES
    ========================================================= */
@@ -2924,6 +2944,12 @@ header[id] {
   .venue-poc-details {
     font-size: 0.78rem !important;
     line-height: 1.32 !important;
+  }
+  .venue-poc-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1.2rem !important;
+    margin-top: 0.12rem !important;
   }
   .venue-poc-details {
     gap: 0.06rem !important;
